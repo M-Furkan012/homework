@@ -1,0 +1,910 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using ce103_hw4_cs_dll;
+using System.Text;
+using System.Runtime.InteropServices;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace ce103_hw4_unit_test
+{
+    [TestClass]
+    public class UnitTest1
+    {
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions fibo = new ce103myfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs(7);
+            Assert.AreEqual(expected, 8);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions fibo = new ce103myfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs(8);
+            Assert.AreEqual(expected, 13);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions fibo = new ce103myfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs(9);
+            Assert.AreEqual(expected, 21);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_imported_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions fibo = new ce103importfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs_import(21);
+            Assert.AreEqual(expected, 6765);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_imported_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions fibo = new ce103importfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs_import(22);
+            Assert.AreEqual(expected, 10946);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_imported_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions fibo = new ce103importfunctions();
+            //we defined value
+            int expected = fibo.ce103_fibonacciNumber_cs_import(23);
+            Assert.AreEqual(expected, 17711);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_vs_imported_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedFibo = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenFibo = new ce103myfunctions();
+            //we defined value
+            int written = writtenFibo.ce103_fibonacciNumber_cs(35);
+            //we defined value
+            int imported = importedFibo.ce103_fibonacciNumber_cs_import(35);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_vs_imported_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedFibo = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenFibo = new ce103myfunctions();
+            //we defined value
+            int written = writtenFibo.ce103_fibonacciNumber_cs(58);
+            //we defined value
+            int imported = importedFibo.ce103_fibonacciNumber_cs_import(58);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_fibonacciNumber_written_vs_imported_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedFibo = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenFibo = new ce103myfunctions();
+            //we defined value
+            int written = writtenFibo.ce103_fibonacciNumber_cs(72);
+            //we defined value
+            int imported = importedFibo.ce103_fibonacciNumber_cs_import(72);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_strrev_written_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string original = "Sourcecode";
+            //we defined value
+            string reversed = "edocecruoS";
+            Assert.AreEqual(reverse.ce103_strrev_cs(original), reversed);
+        }
+
+        [TestMethod]
+        public void ce103_strrev_written_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string original = "Pcgames";
+            //we defined value
+            string reversed = "semagcP";
+            Assert.AreEqual(reverse.ce103_strrev_cs(original), reversed);
+        }
+
+        [TestMethod]
+        public void ce103_strrev_written_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string original = "Testing";
+            //we defined value
+            string reversed = "gnitseT";
+            Assert.AreEqual(reverse.ce103_strrev_cs(original), reversed);
+        }
+
+        [TestMethod]
+        public void ce103_strrev_cs_import_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs_import("Laptop"), "potpaL");
+        }
+        [TestMethod]
+        public void ce103_strrev_importedcppcs_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strrev = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs("Define"), "enifeD", Strrev.ce103_strrev_cs_import("Coder"), "redoC");
+        }
+
+        [TestMethod]
+        public void ce103_strrev_cs_import_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs_import("Save & Exit"), "tixE & evaS");
+        }
+        [TestMethod]
+        public void ce103_strrev_importedcppcs_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strrev = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs("Senior & Junior"), "roinuJ & roineS", Strrev.ce103_strrev_cs_import("Software developer"), "repoleved erawtfoS");
+        }
+
+        [TestMethod]
+        public void ce103_strrev_cs_import_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs_import("Compare"), "erapmoC");
+        }
+        [TestMethod]
+        public void ce103_strrev_importedcppcs_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strrev = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strrev = new ce103importfunctions();
+            Assert.AreEqual(strrev.ce103_strrev_cs("Metaverse"), "esrevateM", Strrev.ce103_strrev_cs_import("Yildiray"), "yaridliY");
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions stringLength = new ce103myfunctions();
+            //we defined value
+            string text = "Pointers";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs(text);
+            Assert.AreEqual(expected, 8);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions stringLength = new ce103myfunctions();
+            //we defined value
+            string text = "Preferences";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs(text);
+            Assert.AreEqual(expected, 11);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions stringLength = new ce103myfunctions();
+            //we defined value
+            string text = "Space Bar";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs(text);
+            Assert.AreEqual(expected, 9);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_imported_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions stringLength = new ce103importfunctions();
+            //we defined value
+            string text = "Discord";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs_import(text);
+            Assert.AreEqual(expected, 7);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_imported_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions stringLength = new ce103importfunctions();
+            //we defined value
+            string text = "Source Files";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs_import(text);
+            Assert.AreEqual(expected, 12);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_imported_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions stringLength = new ce103importfunctions();
+            //we defined value
+            string text = "Social Networks";
+            //we defined value
+            int expected = stringLength.ce103_strlen_cs_import(text);
+            Assert.AreEqual(expected, 15);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_vs_imported_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrlen = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrlen = new ce103myfunctions();
+            //we defined value
+            string text = "Monitor";
+            //we defined value
+            int imported = importedStrlen.ce103_strlen_cs_import(text);
+            //we defined value
+            int written = writtenStrlen.ce103_strlen_cs(text);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_vs_imported_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrlen = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrlen = new ce103myfunctions();
+            //we defined value
+            string text = "Keyboard";
+            //we defined value
+            int imported = importedStrlen.ce103_strlen_cs_import(text);
+            //we defined value
+            int written = writtenStrlen.ce103_strlen_cs(text);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_strlen_written_vs_imported_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrlen = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrlen = new ce103myfunctions();
+            //we defined value
+            string text = "Mouse";
+            //we defined value
+            int imported = importedStrlen.ce103_strlen_cs_import(text);
+            //we defined value
+            int written = writtenStrlen.ce103_strlen_cs(text);
+            Assert.AreEqual(written, imported);
+        }
+
+        [TestMethod]
+        public void ce103_strcat_written_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string word1 = "Git";
+            //we defined value
+            string word2 = "Push";
+            //we defined value
+            string result = "GitPush";
+            Assert.AreEqual(reverse.ce103_strcat_cs(word1, word2), result);
+        }
+
+        [TestMethod]
+        public void ce103_strcat_written_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string word1 = "Header";
+            //we defined value
+            string word2 = "Files";
+            //we defined value
+            string result = "HeaderFiles";
+            Assert.AreEqual(reverse.ce103_strcat_cs(word1, word2), result);
+        }
+
+        [TestMethod]
+        public void ce103_strcat_written_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions reverse = new ce103myfunctions();
+            //we defined value
+            string word1 = "Social";
+            //we defined value
+            string word2 = "Platform";
+            //we defined value
+            string result = "SocialPlatform";
+            Assert.AreEqual(reverse.ce103_strcat_cs(word1, word2), result);
+        }
+
+        [TestMethod]
+        public void ce103_strcat_cs_import_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs_import("Social", "Network"), "SocialNetwork");
+        }
+
+        [TestMethod]
+        public void ce103_strcat_importedcppcs_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcat = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs("Good", "Work"), "GoodWork", Strcat.ce103_strcat_cs_import("Good", "Work"), "GoodWork");
+        }
+
+        [TestMethod]
+        public void ce103_strcat_cs_import_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs_import("Video", "Games"), "VideoGames");
+        }
+        [TestMethod]
+        public void ce103_strcat_importedcppcs_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcat = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs("Hunstman", "Knife"), "HunstmanKnife", Strcat.ce103_strcat_cs_import("Hunstman", "Knife"), "HunstmanKnife");
+        }
+
+        [TestMethod]
+        public void ce103_strcat_cs_import_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs_import("Senior", "Coder"), "SeniorCoder");
+        }
+
+        [TestMethod]
+        public void ce103_strcat_importedcppcs_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcat = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcat = new ce103importfunctions();
+            Assert.AreEqual(strcat.ce103_strcat_cs("Junior", "Coder"), "JuniorCoder", Strcat.ce103_strcat_cs_import("Junior", "Developer"), "JuniorDeveloper");
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "Game";
+            //we defined value
+            const string str2 = "Game";
+            Assert.AreEqual(strcmp.ce103_strcmp_cs(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "Computer";
+            //we defined value
+            const string str2 = "Science";
+            Assert.AreNotEqual(strcmp.ce103_strcmp_cs(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "Welcome";
+            //we defined value
+            const string str2 = "Welcome";
+            Assert.AreEqual(strcmp.ce103_strcmp_cs(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcmp = new ce103importfunctions();
+            //we defined value
+            const string str1 = "metaverse";
+            //we defined value
+            const string str2 = "metaverse";
+            Assert.AreEqual(strcmp.ce103_strcmp_cs_import(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcmp = new ce103importfunctions();
+            //we defined value
+            const string str1 = "github";
+            //we defined value
+            const string str2 = "github";
+            Assert.AreEqual(strcmp.ce103_strcmp_cs_import(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcmp = new ce103importfunctions();
+            //we defined value
+            const string str1 = "repository";
+            //we defined value
+            const string str2 = "gamer";
+            Assert.AreNotEqual(strcmp.ce103_strcmp_cs_import(str1, str2), 0);
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_vs_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrcmp = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "ProgrammingLanguages";
+            //we defined value
+            const string str2 = "ProgrammingLanguages";
+            Assert.AreEqual(importedStrcmp.ce103_strcmp_cs_import(str1, str2), writtenStrcmp.ce103_strcmp_cs(str1, str2));
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_vs_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrcmp = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "processor";
+            //we defined value
+            const string str2 = "processor";
+            Assert.AreEqual(importedStrcmp.ce103_strcmp_cs_import(str1, str2), writtenStrcmp.ce103_strcmp_cs(str1, str2));
+        }
+
+        [TestMethod]
+        public void ce103_strcmp_written_vs_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions importedStrcmp = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions writtenStrcmp = new ce103myfunctions();
+            //we defined value
+            const string str1 = "Database";
+            //we defined value
+            const string str2 = "Database";
+            Assert.AreEqual(importedStrcmp.ce103_strcmp_cs_import(str1, str2), writtenStrcmp.ce103_strcmp_cs(str1, str2));
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_written_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            //we defined value
+            string str1 = "Home";
+            //we defined value
+            string str2 = "Office";
+            //we defined value
+            string expectedStr = "Office";
+            Assert.AreEqual(strcpy.ce103_strcpy_cs(str1, str2), expectedStr);
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_written_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            //we defined value
+            string str1 = "User";
+            //we defined value
+            string str2 = "Interface";
+            //we defined value
+            string expectedStr = "Interface";
+            Assert.AreEqual(strcpy.ce103_strcpy_cs(str1, str2), expectedStr);
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_written_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            //we defined value
+            string str1 = "Computer";
+            //we defined value
+            string str2 = "Parts";
+            //we defined value
+            string expectedStr = "Parts";
+            Assert.AreEqual(strcpy.ce103_strcpy_cs(str1, str2), expectedStr);
+        }
+        [TestMethod]
+        public void ce103_strcpy_cs_import_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs_import("World", "Hi"), "Hi");
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_importedcppcs_test_1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs("Science", "Fiction"), "Fiction", Strcpy.ce103_strcpy_cs_import("Science", "Fiction"), "Fiction");
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_cs_import_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs_import("Computer", "Engineering"), "Engineering");
+        }
+        [TestMethod]
+        public void ce103_strcpy_importedcppcs_test_2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs("Computer", "Engineering"), "Engineering", Strcpy.ce103_strcpy_cs_import("Computer", "Engineering"), "Engineering");
+        }
+
+        [TestMethod]
+        public void ce103_strcpy_cs_import_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs_import("Hello", "Word"), "Word");
+        }
+        [TestMethod]
+        public void ce103_strcpy_importedcppcs_test_3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions strcpy = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions Strcpy = new ce103importfunctions();
+            Assert.AreEqual(strcpy.ce103_strcpy_cs("Hello", "Word"), "Word", Strcpy.ce103_strcpy_cs_import("Hello", "Word"), "Word");
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions hex2bin = new ce103myfunctions();
+            //we defined value
+            string hexstring = "6868686868686868";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0x68, 0x68, 0x68, 0x68, 0x68, 0x68, 0x68, 0x68 };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions hex2bin = new ce103myfunctions();
+            //we defined value
+            string hexstring = "6666666666666666";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0x66, 0x66, 0x66, 0x66, 0x66, 0x66, 0x66, 0x66 };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions hex2bin = new ce103myfunctions();
+            //we defined value
+            string hexstring = "BABABABABABABABA";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0xBA, 0xBA, 0xBA, 0xBA, 0xBA, 0xBA, 0xBA, 0xBA };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions hex2bin = new ce103importfunctions();
+            //we defined value
+            string hexstring = "BCDEBF263743";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0xBC, 0xDE, 0xBF, 0x26, 0x37, 0x43 };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions hex2bin = new ce103importfunctions();
+            //we defined value
+            string hexstring = "6427519837246251389453";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0x64, 0x27, 0x51, 0x98, 0x37, 0x24, 0x62, 0x51, 0x38, 0x94, 0x53 };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions hex2bin = new ce103importfunctions();
+            //we defined value
+            string hexstring = "3434343434343434343434";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0x34, 0x34, 0x34, 0x34, 0x34, 0x34, 0x34, 0x34, 0x34, 0x34, 0x34 };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            hex2bin.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            // assert by sequence
+            CollectionAssert.AreEqual(expectedArr, hexArr);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_vs_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we defined value
+            string hexstring = "EEEEEEEEEE";
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            imported.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            byte[] hexArr2 = new byte[hexstring.Length / 2];
+            written.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexArr, hexArr2);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_vs_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we defined value
+            string hexstring = "DCBEFACE";
+            byte[] expectedArr = { 0xDC, 0xBE, 0xFA, 0xCE };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            imported.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            byte[] hexArr2 = new byte[hexstring.Length / 2];
+            written.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexArr, hexArr2);
+        }
+
+        [TestMethod]
+        public void ce103_hex2bin_written_vs_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we defined value
+            string hexstring = "68962DB56C385321DC";
+            //we give values ​​to the array
+            byte[] expectedArr = { 0x68, 0x96, 0x2D, 0xB5, 0x6C, 0x38, 0x53, 0x21, 0xDC };
+            byte[] hexArr = new byte[hexstring.Length / 2];
+            imported.ce103_hex2bin_cs_import(hexstring, hexstring.Length, hexArr);
+            byte[] hexArr2 = new byte[hexstring.Length / 2];
+            written.ce103_hex2bin_cs(hexstring, hexstring.Length, hexArr2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexArr, hexArr2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xDE, 0xCB, 0xDA, 0x68, 0x27, 0x54 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { 'D', 'E', 'C', 'B', 'D', 'A', '6', '8', '2', '7', '5', '4' };
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0x55, 0x55, 0x55, 0x55, 0x55 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { '5', '5', '5', '5', '5', '5', '5', '5', '5', '5' };
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E' };
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE, 0xAE };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E', 'A', 'E' };
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0x44, 0x44, 0x44, 0x44, 0x44 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { '4', '4', '4', '4', '4', '4', '4', '4', '4', '4' };
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xAE, 0xBD, 0xFE, 0x35, 0x48, 0x24 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            //we give values ​​to the array
+            char[] hexstring = { 'A', 'E', 'B', 'D', 'F', 'E', '3', '5', '4', '8', '2', '4' };
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_vs_imported_test1()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xBA, 0xBD, 0xBF, 0x22, 0x58, 0x35 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            char[] hexstring1 = new char[bin.Length * 2];
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring1);
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring1, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_vs_imported_test2()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xAB, 0xAF, 0xAA, 0x57, 0x44, 0x21 };
+            char[] hexstring2 = new char[bin.Length * 2];
+            char[] hexstring1 = new char[bin.Length * 2];
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring1);
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring1, hexstring2);
+        }
+
+        [TestMethod]
+        public void ce103_bin2hex_written_vs_imported_test3()
+        {
+            // we're creating object of it otherwise we cannot use ce103myfunctions class
+            ce103myfunctions written = new ce103myfunctions();
+            // we're creating object of it otherwise we cannot use ce103importfunctions class
+            ce103importfunctions imported = new ce103importfunctions();
+            //we give values ​​to the array
+            byte[] bin = { 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB, 0xBB };
+            char[] hexstring2 = new char[bin.Length * 2];
+            char[] hexstring1 = new char[bin.Length * 2];
+            written.ce103_bin2hex_cs(bin, bin.Length, hexstring1);
+            imported.ce103_bin2hex_cs_import(bin, bin.Length, hexstring2);
+            // assert by sequence
+            CollectionAssert.AreEqual(hexstring1, hexstring2);
+        }
+    }
+}
