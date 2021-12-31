@@ -1,0 +1,161 @@
+
+#include "ce103-hw4-c-dll.h"
+
+
+
+int ce103_fibonacciNumber(int fiIndex)
+{
+	//*The a two elements of the Fibonacci number are created.
+	int a = 0, b = 1, c;
+	//*The loop variable is assigned and the loop variable is incremented by one at the end of each operation.
+	for (int i = 1; i < fiIndex; i++)
+	{
+		//*The b number is added to the a value and reassigned to the c value.
+		c = a + b;
+		//*The b number is assigned to the a value.
+		a = b;
+		//*The c number is assigned to the b value.
+		b = c;
+	}
+	return a;
+}
+
+char* ce103_strrev(char* change)
+{
+	if (!change || !*change) //*if true it goes into this loop.
+		return change; //*change returned.
+
+	int i = ce103_strlen(change) - 1, j = 0; //*Variables have been defined.
+
+	char ch; //*ch have been defined.
+	while (i > j) //*This loop runs while true.
+	{
+		ch = change[i]; //*Value assigned to variable ch.
+		change[i] = change[j]; //*Value assigned to change[i].
+		change[j] = ch; //*Value assigned to change[j].
+		i--; //*i reduced by 1.
+		j++; //*j increased by 1.
+	}
+	return change; //*change returned.
+}
+
+
+int ce103_strlen(const char* change)
+{
+	int c = 0; //*c variable have been defined.
+
+	while (*(change + c) != '\0') //This loop runs while true.
+		c++; //*c increased by 1.
+
+	return c; //*c returned.
+}
+
+char* ce103_strcat(char* fiDest, char* fiSrc)
+{
+	char* start = fiDest;
+	//
+	while (*fiDest != '\0')
+	{
+		//*fiDest is incremented by one
+		fiDest++;
+	}
+	//*When the fiSrc pointer is not equal to '\0', the fiDest pointer is set to the fiSrc pointer, and fiDest and fiSrc are incremented one by one.
+	while (*fiSrc != '\0')
+	{
+		//*fiDest pointer is set to the fiSrc pointer.
+		*fiDest = *fiSrc;
+		//fiDest is incremented by one.
+		fiDest++;
+		//*change is incremented by one.
+		fiSrc++;
+	}
+
+	*fiDest = '\0';
+	return start;
+}
+
+int ce103_strcmp(const char* fiLhs, const char* fiRhs)
+{
+
+	//*adding a variable to compare.
+	int ret;
+	//*Compares two null-terminated byte strings lexicographically.
+	while ((ret = *fiLhs - *fiRhs++) == 0 && *fiLhs++);
+	//*return the variable until finish test.
+	return ret;
+}
+
+char* ce103_strcpy(char* foDestination, const char* fiSource)
+{
+	char* ret = foDestination;
+	//*Increment the foDestination and fiSource pointers one by one and make them equal to each other, while not equal to '\0' we are returning to the reject pointer.
+	while ((*foDestination++ = *fiSource++) != '\0');
+	return ret;
+
+}
+
+void ce103_hex2bin(char* fiHex, int fiHexLen, unsigned char* foBin)
+{
+	//*change1 value have been defined.
+	int change1 = 0;
+
+	//*This loop works as long as the value of fiHex is not 0.
+	while (*fiHex != 0)
+	{
+		//*This loop will run if change1 is greater than or equal to fiHexLen.
+		if (change1 >= fiHexLen) break;
+
+		//*This loop will run if the value of fiHex is between 0 and 9.
+		if (*fiHex >= '0' && *fiHex <= '9')
+			*foBin = (*fiHex - '0') << 4;
+		//*This loop will run if the value of fiHex is between A and F.
+		else if (*fiHex >= 'A' && *fiHex <= 'F')
+			*foBin = ((*fiHex - 'A') + 10) << 4;
+		//*This loop will run if the value of feHex is between a and f.
+		else if (*fiHex >= 'a' && *fiHex <= 'f')
+			*foBin = ((*fiHex - 'a') + 10) << 4;
+
+		//*Increased the value of fiHexand change1 by 1.
+		fiHex++; change1++;
+		//*If the value of fiHex is equal to 0, the loop ends.
+		if (*fiHex == 0) break;
+		//*If the value of change1 is greater than or equal to fiHexLen, the loop ends.
+		if (change1 >= fiHexLen) break;
+
+		//*This loop will run if the value of fiHex is between 0 and 9.
+		if (*fiHex >= '0' && *fiHex <= '9')
+			*foBin |= (*fiHex - '0');
+		//*This loop will run if the value of fiHex is between A and F.
+		else if (*fiHex >= 'A' && *fiHex <= 'F')
+			*foBin |= ((*fiHex - 'A') + 10);
+		//*This loop will run if the value of fiHex is between a and f.
+		else if (*fiHex >= 'a' && *fiHex <= 'f')
+			*foBin |= ((*fiHex - 'a') + 10);
+
+		//*The values ​​of fiHex, change1, and foBin are incremented by 1.
+		fiHex++; change1++; foBin++;
+	}
+}
+
+void ce103_bin2hex(unsigned char* fiBin, int fiBinLen, char* foHex)
+{
+	//*change2 variable have been defined.
+	char change2 = 0;
+
+	//*This loop runs until it is not supplied.
+	for (int y = 0; y < fiBinLen; y++)
+	{
+		change2 = ((*fiBin) & 0xF0) >> 4;
+		//*If change2 is greater than 9, this loop will run.
+		if (change2 > 9) *foHex++ = (char)(change2 + 0x37);
+		//*If change2 is not greater than 9, this loop will run.
+		else          *foHex++ = (char)(change2 + 0x30);
+
+		change2 = (*fiBin++) & 0x0F;
+		//*If change2 is greater than 9, this loop will run.
+		if (change2 > 9) *foHex++ = (char)(change2 + 0x37);
+		//*If change2 is not greater than 9, this loop will run.
+		else          *foHex++ = (char)(change2 + 0x30);
+
+	}
+}
